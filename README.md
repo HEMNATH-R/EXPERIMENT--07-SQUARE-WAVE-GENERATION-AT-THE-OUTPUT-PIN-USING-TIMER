@@ -176,7 +176,7 @@ static void MX_TIM3_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 12000;
+  sConfigOC.Pulse = 17000;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
@@ -209,37 +209,41 @@ void assert_failed(uint8_t *file, uint32_t line)
 
 
 ## Output screen shots of proteus  :
- 
- 
+<img width="1379" height="881" alt="Screenshot 2025-11-03 135722" src="https://github.com/user-attachments/assets/e2b26a82-342f-4005-bb99-e99f67901a31" />
+<img width="1380" height="878" alt="Screenshot 2025-11-03 135034" src="https://github.com/user-attachments/assets/439917c0-a332-49e7-b32c-43595f20852d" />
+<img width="1379" height="879" alt="image" src="https://github.com/user-attachments/assets/63c8066a-c45d-4a75-8fa4-d8d11a23c942" />
+
 ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
 
- <img width="1217" height="858" alt="image" src="https://github.com/user-attachments/assets/3261cbbb-54c4-4672-930a-3ccb078aaff7" />
+<img width="1217" height="858" alt="image" src="https://github.com/user-attachments/assets/3261cbbb-54c4-4672-930a-3ccb078aaff7" />
 
 
 ## DUTY CYCLE AND FREQUENCY CALCULATION 
-FOR PULSE AT 500
-
-TON = 
-TOFF=
-TOTAL TIME = 
-FREQUENCY = 1/(TOTAL TIME)
-
+FOR PULSE AT 17000
+```
+TON = 4.25*0.5m = 2.125ms
+TOFF= 1.75*0.5m = 0.875ms
+TOTAL TIME = 3ms
+FREQUENCY = 1/(TOTAL TIME) = 1/3
+DUTY RATIO = TON/T = (2.125/3)*100 = 71%
+```
 FOR PULSE AT 700
+```
+TON = 3*0.5m = 1.5ms
+TOFF= 3*0.5m = 1.5ms
+TOTAL TIME = 3ms
+FREQUENCY = 1/(TOTAL TIME) = 1/3
+DUTY RATIO =TON/T = (1.5/3)*100 = 50%
 
-TON = 
-TOFF=
-TOTAL TIME = 
-FREQUENCY = 1/(TOTAL TIME)
-
-
+```
 FOR PULSE AT 900
-
-TON = 
-TOFF=
-TOTAL TIME = 
-FREQUENCY = 1/(TOTAL TIME)
-
-
+```
+TON = 2*0.5 = 1
+TOFF= 4*0.5 = 2
+TOTAL TIME = 3
+FREQUENCY = 1/(TOTAL TIME) = 1/3
+DUTY RATIO =TON/T = (1/3)*100 = 33%
+```
 ## Result :
 A PWM Signal is generated using the following frequency and various duty cycles are simulated 
 
